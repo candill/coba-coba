@@ -1,0 +1,183 @@
+/* Smooth scroll for internal links */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.font-brand {
+  font-family: 'Montserrat', Arial, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.glass {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(8px);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px) scale(1.025);
+  box-shadow: 0 8px 32px rgba(45,88,176,0.07);
+  background: rgba(255,255,255,0.90);
+}
+
+/* search-suggestion related styles */
+.search-suggestion:focus-within .suggestion-list {
+  display: block;
+}
+
+.suggestion-list {
+  display: none;
+}
+
+/* Custom style for larger feature card images */
+.feature-card-img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Carousel specific styles */
+.carousel-slide {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.carousel-slide.active {
+  display: flex;
+  opacity: 1;
+}
+
+.carousel-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 30;
+  transition: background-color 0.3s;
+}
+
+.carousel-nav-button:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+.carousel-nav-button.prev {
+  left: 20px;
+}
+
+.carousel-nav-button.next {
+  right: 20px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 30;
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-indicator.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* Navbar hide on scroll styles */
+.main-header {
+  transition: transform 0.3s ease-out;
+}
+
+.main-header.hidden-nav {
+  transform: translateY(-100%);
+}
+
+/* Back to Top Button styles */
+#back-to-top {
+  position: fixed;
+  bottom: 85px;
+  right: 5px;
+  background-color: #2563eb;
+  color: white;
+  padding: 12px 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: opacity 0.3s, transform 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 100;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-3px);
+}
+
+/* Language Switcher Styles */
+.language-switcher {
+  /* Removed margin-right as it's now a full-width bar */
+}
+
+.language-option {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #4b5563;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.language-option:hover {
+  color: #1e40af;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.language-option.active {
+  color: #1e40af;
+  font-weight: 600;
+}
+
+/* Gallery Modal Styles */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.gallery-modal-content {
+    animation: fadeIn 0.3s ease-out;
+}
